@@ -1,0 +1,42 @@
+// .devcontainer/devcontainer.json
+{
+  "name": "BioTapestry Environment",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  
+  // Commands to run after the container is created.
+  "postCreateCommand": "mamba env create -f ../environment.yml",
+
+  // Configure tool-specific properties.
+  "customizations": {
+    "vscode": {
+      "settings": {
+        // Point to the python interpreter in our conda environment
+        "python.defaultInterpreterPath": "/opt/conda/envs/biotapestry-env/bin/python",
+        "r.rpath.linux": "/opt/conda/envs/biotapestry-env/bin/R"
+      },
+      // Add the IDs of extensions you want installed when the container is created.
+      "extensions": [
+        "ms-python.python",
+        "ms-toolsai.jupyter",
+        "REditorSupport.r",
+        "eamodio.gitlens",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  },
+
+  // Forward the Jupyter port so you can access notebooks in your local browser.
+  "forwardPorts": [8888],
+
+  // Use 'postCreateCommand' to create the conda env. 
+  // 'postStartCommand' can be used for tasks after the env is ready.
+  "postStartCommand": "echo 'BioTapestry environment is ready!'",
+  
+  // Tell Codespaces to use the new conda environment as the default terminal shell.
+  "remoteUser": "vscode",
+  "postAttachCommand": {
+    "server": "conda activate biotapestry-env"
+  }
+}

@@ -1,0 +1,41 @@
+# environment.yml
+name: biotapestry-env
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  # == Core Languages ==
+  - python=3.11
+  - r-base=4.3.1
+
+  # == Python Packages ==
+  # Core single-cell and data analysis
+  - scanpy=1.9.8
+  - scvi-tools=1.1.2
+  - python-igraph=0.11.3
+  - leidenalg=0.10.2
+  # Standard data science stack
+  - pandas=2.1.4
+  - numpy=1.26.4
+  - scikit-learn=1.4.2
+  # Plotting
+  - matplotlib=3.8.2
+  - seaborn=0.13.2
+  # Notebook environment
+  - jupyterlab=4.1.5
+  - notebook=7.1.2
+
+  # == R Packages ==
+  - r-essentials=4.3
+  # Core single-cell and data analysis
+  - bioconductor-seurat=5.0.1 
+  # Enrichment and annotation
+  - bioconductor-clusterprofiler=4.8.3
+  - bioconductor-annotationdbi=1.64.1
+  - bioconductor-org.hs.eg.db=3.18.0 # Human annotations
+  - bioconductor-org.mm.eg.db=3.18.0 # Mouse annotations
+  # Plotting and utilities
+  - r-ggplot2=3.5.0
+  - r-dplyr=1.1.4
+  - r-devtools=2.4.5
